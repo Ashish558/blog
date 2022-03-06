@@ -1,0 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --white: rgb(204, 219, 247);
+  --title: #8f91ff;
+  --primary: rgb(174, 233, 168);
+  --primary-light: rgb(210, 226, 245, 0.8);
+  --primary-dark: rgb(119, 196, 123);
+  --error: #ff7a7a;
+  --posts-bg: rgb(213, 204, 245);
+  --post: #f3f8ff;
+  --post-icon: #0e0d0d;
+  --post-nav: rgb(44, 143, 224);
+  --post-icon-active: rgb(93, 121, 212);
+  --violet: rgba(103, 73, 220, 1);
+  --pink: #ea4c89;
+}
+
+/* global classes  */
+
+* {
+  font-family: Poppins;
+}
+
+
+a {
+  text-decoration: none;
+  background: none;
+  font-family: Poppins;
+}
+
+body{
+  background: #f9f8ffe3;
+}
+.reset-input {
+  outline: none;
+  background: transparent;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(./fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: Nunito;
+  src: url(./fonts/Nunito/Nunito-Medium.ttf);
+}
+
+
+@font-face {
+  font-family: IBM_plex;
+  src: url(./fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: Open_Sans_bold;
+  src: url(./fonts/OpenSans/OpenSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: Open_Sans;
+  src: url(./fonts/OpenSans/OpenSans-Medium.ttf);
+}
+
+@font-face {
+  font-family: Open_Sans_bold;
+  src: url(./fonts/OpenSans/OpenSans-SemiBold.ttf);
+}
+
