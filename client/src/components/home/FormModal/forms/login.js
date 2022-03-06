@@ -31,12 +31,10 @@ export default function Login({ setIsSignupActive }) {
 		loginUser(data, (err, data) => {
             console.log(err)
 			if (err) return setErrorMsg(err.response.data)
-	
-            console.log(data)
 			const { token, email, user_id, user_img } = data
 			setErrorMsg("")
 			setUserStorage(token, email, user_id, user_img)
-			// window.location='/posts'
+			 window.location='/'
 
 		})
     }
