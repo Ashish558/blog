@@ -1,4 +1,4 @@
-export const domain = 'http://localhost:4000'
+export const domain = 'https://blog-app-45.herokuapp.com'
 
 export const authHeader = {
     headers: {
