@@ -11,7 +11,7 @@ const corsOptions = {
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'X-Access-Token', 'Authorization', "auth-token"],
   credentials: true,
   methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-  origin: 'http://localhost:3000',
+  origin: 'https://blog-app-45.herokuapp.com',
   preflightContinue: false,
 }
 
