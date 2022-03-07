@@ -4,7 +4,8 @@ import Signup from './forms/signup'
 import Login from './forms/login'
 import { useDispatch } from 'react-redux'
 import { updateModal } from '../../../app/slices/formModal'
-import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
+import CancelRoundedIcon from '@mui/icons-material/CancelRounded'
+import useWindowDimensions from '../../../hooks/useWindowDimensions'
 
 const styles = {
     modal: {
@@ -95,9 +96,11 @@ const styles = {
 export default function FormModal() {
     const [isSignupActive, setIsSignupActive] = useState(true)
     const dispatch = useDispatch()
+     const { height } = useWindowDimensions()
+     
     return (
-        <Box sx={styles.modal}>
-
+        <Box sx={{...styles.modal, height: height}}>
+        
             <Box sx={styles.form} >
                 <Box sx={styles.formWrapper} >
                     <Box sx={styles.form_left} >
