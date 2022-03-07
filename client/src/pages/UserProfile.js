@@ -29,7 +29,7 @@ function UserProfile(props) {
 
     useEffect(() => {
         setLoading(true)
-        getUserProfileDetails(1, (err, res) => {
+        getUserProfileDetails(userId, (err, res) => {
             if (err) return console.log(err)
             let topCategories = res.maxCategories.map(item => item._id)
             setprofile({ ...res.data, topCategories })
