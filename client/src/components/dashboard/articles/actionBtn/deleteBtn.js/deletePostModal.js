@@ -12,6 +12,11 @@ export default function DeletePostModal({ _id, open, setOpen, setAnchorEl }) {
 
 
     const handleClose = () => {
+        setOpen(false)
+        setAnchorEl(null)
+    }
+
+    const handleClick = () => {
         deletePost(_id, (err, res) => {
             if (err) return console.log(err)
             setOpen(false)
@@ -35,12 +40,11 @@ export default function DeletePostModal({ _id, open, setOpen, setAnchorEl }) {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        Let Google help apps determine location. This means sending anonymous
-                        location data to Google, even when no apps are running.
+                      Once deleted you cannot undo this action
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions sx={{ justifyContent: 'flex-start', px: 3, py: 2 }} >
-                    <Button onClick={handleClose} variant='contained' color='error' autoFocus>
+                    <Button onClick={handleClick} variant='contained' color='error' autoFocus>
                         Delete
                     </Button>
                 </DialogActions>
