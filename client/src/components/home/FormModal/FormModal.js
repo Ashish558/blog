@@ -1,43 +1,80 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Modal, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Signup from './forms/signup'
 import Login from './forms/login'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { updateModal } from '../../../app/slices/formModal'
-import CancelRoundedIcon from '@mui/icons-material/CancelRounded'
-import useWindowDimensions from '../../../hooks/useWindowDimensions'
+import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
+
+
+export default function FormModal() {
+    const isFormModalOpen = useSelector(state => state.formModal.isFormModalOpen)
+    const [isSignupActive, setIsSignupActive] = useState(true)
+    const dispatch = useDispatch()
+    const handleClose = () => dispatch(updateModal(false))
+
+    return (
+        <Modal open={isFormModalOpen} onClose={handleClose} >
+            <Box sx={styles.form} >
+                <Box sx={styles.formWrapper} >
+                    <Box sx={styles.form_left} >
+                        {/* header */}
+                        <Box mb={4} sx={{ display: 'flex', width: '100%' }} >
+                            <Typography variant='h5' fontWeight='600' >
+                                {
+                                    isSignupActive ? 'Create Account' : 'Login'
+                                }
+                            </Typography>
+                            <CancelRoundedIcon color='white' sx={styles.closeIcon_tablet} onClick={() => dispatch(updateModal(false))} />
+                        </Box>
+                        {/* form */}
+                        {
+                            isSignupActive ?
+                                <Signup setIsSignupActive={setIsSignupActive} />
+                                :
+                                <Login setIsSignupActive={setIsSignupActive} />
+                        }
+
+                        <Typography sx={{ textAlign: 'center', fontSize: '14px', color: '#565656', fontFamily: 'Nunito' }} >
+                            By signing up you agree to our Terms and conditions, Privacy policy
+                        </Typography>
+                    </Box>
+
+                    <Box sx={styles.formImg} >
+                        <Box component='img' src='/assets/form.png' sx={{ width: '300px' }} />
+                    </Box>
+                </Box>
+                <CancelRoundedIcon color='white' sx={styles.closeIcon_desktop} onClick={() => dispatch(updateModal(false))} />
+            </Box>
+
+        </Modal>
+    )
+}
+
 
 const styles = {
-    modal: {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        display: 'flex',
-        alignItems: 'flex-end',
-        height: '100%',
-        background: '#1e1e1e87',
-        zIndex: 2000,
-        justifyContent: 'stretch',
-        ['@media (min-width:700px)']: { // eslint-disable-line no-useless-computed-key
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: '#1e1e1e87',
-        }
-    },
+
     form: {
-        position: 'relative',
         flex: 1,
         boxShadow: '0px 8px 24px rgb(0 0 0 / 25%)',
         borderRadius: '8px 8px 0px 0px',
         background: 'white',
         py: 3,
         px: 2,
+        //mob
+        ['@media (max-width:700px)']: { // eslint-disable-line no-useless-computed-key
+            position: 'fixed',
+            left: 0,
+            bottom: 0
+        },
         //tablet
         ['@media (min-width:700px)']: { // eslint-disable-line no-useless-computed-key
-            flex: 'auto',
+            position: 'fixed',
+            top:'50%',
+            left:'50%',
+            transform:'translate(-50%, -50%)',
             borderRadius: '8px',
-            maxWidth: '600px',   
+            width: '600px',
         },
 
         //desktop
@@ -91,50 +128,4 @@ const styles = {
             flex: '1',
         }
     }
-}
-
-export default function FormModal() {
-    const [isSignupActive, setIsSignupActive] = useState(true)
-    const dispatch = useDispatch()
-     const { height } = useWindowDimensions()
-     
-    return (
-        <Box sx={{...styles.modal, height: height}}>
-        
-            <Box sx={styles.form} >
-                <Box sx={styles.formWrapper} >
-                    <Box sx={styles.form_left} >
-                        {/* header */}
-                        <Box mb={4} sx={{ display: 'flex', width: '100%' }} >
-                            <Typography variant='h5' fontWeight='600' >
-                                {
-                                    isSignupActive ? 'Create Account' : 'Login'
-                                }
-                            </Typography>
-                            <CancelRoundedIcon color='white' sx={styles.closeIcon_tablet} onClick={() => dispatch(updateModal(false))} />   
-                        </Box>
-                        {/* form */}
-                        {
-                            isSignupActive ?
-                                <Signup setIsSignupActive={setIsSignupActive} />
-                                :
-                                <Login setIsSignupActive={setIsSignupActive} />
-                        }
-
-                        <Typography sx={{ textAlign: 'center', fontSize: '14px', color: '#565656', fontFamily: 'Nunito' }} >
-                            By signing up you agree to our Terms and conditions, Privacy policy
-                        </Typography>
-                    </Box>
-
-                    {/* right side */}
-                    <Box sx={styles.formImg} >
-                        <Box component='img' src='/assets/form.png' sx={{ width: '300px' }} />
-                    </Box>
-                </Box>
-                <CancelRoundedIcon color='white' sx={styles.closeIcon_desktop} onClick={() => dispatch(updateModal(false))} />
-            </Box>
-
-
-        </Box>
-    )
 }
