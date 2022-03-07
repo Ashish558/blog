@@ -45,7 +45,7 @@ export const getUserDashboardDetails = (cb) => {
 
 //for profile page
 export const getUserProfileDetails = (userId, cb) => {
-    userId = localStorage.getItem('user_id')
+  
     axios.get(`${baseUrl}/profile/${userId}`, authHeader)
         .then(res => cb(null, res.data))
         .catch(err => console.log(err))
