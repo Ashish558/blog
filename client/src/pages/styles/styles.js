@@ -16,18 +16,18 @@ export const containerStyle = {
     overflowY: 'scroll',
     ['@media (max-width:970px)']: { // eslint-disable-line no-useless-computed-key
         py: '81.1px',
-        pb: '10px'
+        pb: '30px'
     },
     ['@media (max-width:568px)']: { // eslint-disable-line no-useless-computed-key
         px: '16px',
         py: '73.1px',
-        pb: '10px'
+        pb: '30px'
     },
     ['@media (min-width:970px)']: { // eslint-disable-line no-useless-computed-key
         py: '40px',
         ml: '300px',
         width: 'auto',
-        pb: '10px'
+        pb: '30px'
     }
 }
 
