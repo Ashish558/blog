@@ -14,7 +14,7 @@ const styles = {
         width: '100%',
         display: 'flex',
         alignItems: 'flex-end',
-        height: '100vh',
+        height: '100%',
         background: '#1e1e1e87',
         zIndex: 2000,
         justifyContent: 'stretch',
@@ -36,14 +36,12 @@ const styles = {
         ['@media (min-width:700px)']: { // eslint-disable-line no-useless-computed-key
             flex: 'auto',
             borderRadius: '8px',
-            maxWidth: '600px',
-            // height: '500px'
+            maxWidth: '600px',   
         },
 
         //desktop
         ['@media (min-width:960px)']: { // eslint-disable-line no-useless-computed-key
             minWidth: '800px',
-            // height: '500px'
         }
     },
     closeIcon_tablet: {
@@ -110,9 +108,7 @@ export default function FormModal() {
                                     isSignupActive ? 'Create Account' : 'Login'
                                 }
                             </Typography>
-                            <CancelRoundedIcon color='white' sx={styles.closeIcon_tablet} onClick={() => dispatch(updateModal(false))} />
-
-                            {/* <Box component='img' src={Cancel} ml='auto' sx={styles.closeIcon_tablet} onClick={() => dispatch(updateModal(false))} /> */}
+                            <CancelRoundedIcon color='white' sx={styles.closeIcon_tablet} onClick={() => dispatch(updateModal(false))} />   
                         </Box>
                         {/* form */}
                         {
@@ -133,7 +129,6 @@ export default function FormModal() {
                     </Box>
                 </Box>
                 <CancelRoundedIcon color='white' sx={styles.closeIcon_desktop} onClick={() => dispatch(updateModal(false))} />
-                {/* <Box component='img' src={Cancel} sx={styles.closeIcon_desktop} onClick={() => dispatch(updateModal(false))} /> */}
             </Box>
 
 
