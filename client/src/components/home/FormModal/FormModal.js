@@ -14,7 +14,7 @@ const styles = {
         width: '100%',
         display: 'flex',
         alignItems: 'flex-end',
-        height: '100%',
+        height: '100vh',
         background: '#1e1e1e87',
         zIndex: 2000,
         justifyContent: 'stretch',
