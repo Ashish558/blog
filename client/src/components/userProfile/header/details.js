@@ -12,12 +12,15 @@ export default function Details({ profile }) {
                 {name.first} {name.last}
             </Typography>
 
-            <Stack variant='h5' direction='row' alignItems='center' sx={styles.location} >
-                <LocationOnIcon sx={{ ...styles.city, fontSize: '18px', mr: 2 }} />
-                <Typography variant='p' sx={styles.city} >
-                    {location.city}, {location.country}
-                </Typography>
-            </Stack>
+            {Object.keys(location).length >= 1 &&
+                <Stack variant='h5' direction='row' alignItems='center' sx={styles.location} >
+                    <LocationOnIcon sx={{ ...styles.city, fontSize: '18px', mr: 2 }} />
+                    <Typography variant='p' sx={styles.city} >
+                        {location.city}, {location.country}
+                    </Typography>
+                </Stack>
+            }
+
 
 
             <Stack direction='row' spacing={1} >
