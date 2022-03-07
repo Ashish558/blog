@@ -12,7 +12,7 @@ export default function Details({ profile }) {
                 {name.first} {name.last}
             </Typography>
 
-            {Object.keys(location).length >= 1 &&
+            {location !== undefined &&
                 <Stack variant='h5' direction='row' alignItems='center' sx={styles.location} >
                     <LocationOnIcon sx={{ ...styles.city, fontSize: '18px', mr: 2 }} />
                     <Typography variant='p' sx={styles.city} >
@@ -20,8 +20,6 @@ export default function Details({ profile }) {
                     </Typography>
                 </Stack>
             }
-
-
 
             <Stack direction='row' spacing={1} >
                 <Typography variant='span' sx={styles.cat}  >
