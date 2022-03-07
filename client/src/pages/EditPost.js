@@ -78,8 +78,6 @@ function EditPost(props) {
                         <Box component='img' src={image} sx={{ width: '100%' }} />
                     </Box>
 
-                    {/* <Inputfile onImageChange={onImageChange} /> */}
-
                 </Stack>
 
                 <Stack spacing={6} alignItems='flex-start' >
@@ -103,10 +101,7 @@ function EditPost(props) {
                         variant="contained"
                     >
                         Edit
-                    </LoadingButton>
-                    {/* <Button type='submit' variant='contained' sx={{ backgroundColor: 'background.blue' }} >
-                        Edit
-                    </Button> */}
+                    </LoadingButton>     
                 </Stack>
 
             </form>
