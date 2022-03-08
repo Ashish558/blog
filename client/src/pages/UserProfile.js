@@ -59,7 +59,6 @@ function UserProfile(props) {
         })
     }, [])
 
-    if (loading) return <></>
     if (Object.keys(profile).length < 1) return <></>
 
     return (
