@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateModal } from '../../../app/slices/formModal'
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 
-
+//make parent cont --
 export default function FormModal() {
     const isFormModalOpen = useSelector(state => state.formModal.isFormModalOpen)
     const [isSignupActive, setIsSignupActive] = useState(true)
@@ -14,7 +14,11 @@ export default function FormModal() {
     const handleClose = () => dispatch(updateModal(false))
 
     return (
-        <Modal open={isFormModalOpen} onClose={handleClose} >
+        <Modal open={isFormModalOpen} onClose={handleClose}
+            sx={{
+                minHeight: '500px',
+                overflow: 'auto'
+            }} >
             <Box sx={styles.form} >
                 <Box sx={styles.formWrapper} >
                     <Box sx={styles.form_left} >
@@ -35,7 +39,7 @@ export default function FormModal() {
                                 <Login setIsSignupActive={setIsSignupActive} />
                         }
 
-                        <Typography sx={{ textAlign: 'center', fontSize: '14px', color: '#565656', fontFamily: 'Nunito' }} >
+                        <Typography sx={styles.footerText} >
                             By signing up you agree to our Terms and conditions, Privacy policy
                         </Typography>
                     </Box>
@@ -55,7 +59,7 @@ export default function FormModal() {
 const styles = {
 
     form: {
-        flex: 1,
+        width: '100%',
         boxShadow: '0px 8px 24px rgb(0 0 0 / 25%)',
         borderRadius: '8px 8px 0px 0px',
         background: 'white',
@@ -63,16 +67,20 @@ const styles = {
         px: 2,
         //mob
         ['@media (max-width:700px)']: { // eslint-disable-line no-useless-computed-key
-            position: 'fixed',
+            position: 'absolute',
             left: 0,
-            bottom: 0
+           
+            minHeight: '500px',
+            height: '100%',
+            overflow: 'auto',
+            display: 'flex'
         },
         //tablet
         ['@media (min-width:700px)']: { // eslint-disable-line no-useless-computed-key
             position: 'fixed',
-            top:'50%',
-            left:'50%',
-            transform:'translate(-50%, -50%)',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
             borderRadius: '8px',
             width: '600px',
         },
@@ -103,7 +111,11 @@ const styles = {
         }
     },
     formWrapper: {
-
+        overflow: 'auto',
+        //mobile
+        ['@media (max-width:700px)']: { // eslint-disable-line no-useless-computed-key
+            flex: '1'
+        },
         //desktop
         ['@media (min-width:960px)']: { // eslint-disable-line no-useless-computed-key
             display: 'flex',
@@ -117,9 +129,22 @@ const styles = {
             flex: '1',
         }
     },
+    footerText: {
+        textAlign: 'center',
+        fontSize: '14px',
+        color: '#565656',
+        fontFamily: 'Nunito',
+        ['@media (max-width:700px)']: { // eslint-disable-line no-useless-computed-key
+            position: 'absolute',
+            bottom: '1rem',
+            left: '0',
+            width: '100%',
+            px: 1
+        },
+    },
+
     formImg: {
         display: 'none',
-
         //desktop
         ['@media (min-width:960px)']: { // eslint-disable-line no-useless-computed-key
             display: 'flex',
