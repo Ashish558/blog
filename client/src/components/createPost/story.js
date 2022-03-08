@@ -16,9 +16,9 @@ export default function Story({ story, classes, setStory }) {
             rows={9}
             InputProps={{
                 disableUnderline: true,
-                style: { fontSize: 20, padding: '14px 14px' }
+                style: { fontSize: '16px' , padding: '14px 14px' }
             }} 
-            InputLabelProps={{ style: { fontSize: 20 } }}
+            InputLabelProps={{ style: { fontSize: '16px'  } }}
         />
     )
 }
