@@ -18,7 +18,8 @@ export default function Header({ title, _id, isLiked }) {
 
     return (
         <Stack sx={{ mb: 4, mt: 1 }} >
-            <Typography variant="h4" component="h4" fontWeight={600} mb={2} textTransform='capitalize' >
+            <Typography variant="h5" component="h4" fontWeight={600} mb={2} textTransform='capitalize'
+              sx={{ fontSize: { sm: '1.5rem', md: '1.5rem', lg: '1.7rem' } }}>
                 {title}
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center' }} >
